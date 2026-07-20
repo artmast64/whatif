@@ -69,3 +69,7 @@ class BookstoreModel(Model):
         """Compute profit based on revenue and cost"""
         profit = self.sales_revenue() + self.refund_revenue() - self.order_cost()
         return profit
+    
+    def __str__(self):
+        """Print dictionary of object attributes that don't include an underscore as first char"""
+        return str({key: val for (key, val) in vars(self).items() if key[0] != '_'})
